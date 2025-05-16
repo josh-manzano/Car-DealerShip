@@ -39,7 +39,8 @@ public class UserInterface {
                     (7) - List ALL vehicles
                     (8) - Add a vehicle
                     (9) - Remove a vehicle
-                    (0) - Quit""");
+                    (0) - Sell/Lease a vehicle
+                    (Q) - Quit""");
 
             // How the user makes their selection
 
@@ -77,13 +78,16 @@ public class UserInterface {
                         removeVehicleRequest();
                         break;
                     case "0":
+                        sellLeaseVehicle();
+                        break;
+                    case "Q":
                         System.out.println("Are you sure you want to exit? (Y/N)");
                         String userChoice = scanner.nextLine().trim().toUpperCase();
 
                         if (userChoice.equalsIgnoreCase("Y")) {
                             System.out.println("Thank you. ");
                             displayMenuRunning = false;
-                        }    else {
+                        } else {
                             displayMenuRunning = true;
                         }
                         break;
@@ -156,6 +160,7 @@ public class UserInterface {
         displayVehiclesList(dealership.getAllVehicles());
 
     }
+
     public void addVehicleRequest(){
         System.out.println("Please enter the vin number: ");
         String vin = scanner.nextLine().trim().toUpperCase();
@@ -204,6 +209,10 @@ public class UserInterface {
             System.out.printf("%s | %s | %s | %s | %s | %s | %.2f | %.2f%n", vehicle.getVinNum(), vehicle.getYear(), vehicle.getMake(),vehicle.getModel(),vehicle.getVehicleType(), vehicle.getColor(), vehicle.getOdometer(), vehicle.getPrice());
 
         }
+    }
+
+    public void sellLeaseVehicle(){
+        System.out.println("Enter car details");
     }
 
 }

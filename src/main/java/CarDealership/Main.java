@@ -1,6 +1,6 @@
 package CarDealership;
 
-public class Program {
+public class Main {
     public static void main(String[] args) {
 
         // creating an object to get access to a Class methods or information
